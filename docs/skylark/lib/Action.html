@@ -1,0 +1,53 @@
+---
+layout: documentation
+title: Action
+---
+<h1 id="modules.Action">Action</h1>
+
+An action created on a <a href="ctx.html">ctx</a> object. You can retrieve these using the <a href="globals.html#Actions">Actions</a> provider. Some fields are only applicable for certain kinds of actions. Fields that are inapplicable are set to <code>None</code>.
+
+<div class="toc">
+  <h2>Methods</h2>
+  <ul>
+          <li><a href="#argv">argv</a></li>
+              <li><a href="#content">content</a></li>
+              <li><a href="#inputs">inputs</a></li>
+              <li><a href="#outputs">outputs</a></li>
+              <li><a href="#substitutions">substitutions</a></li>
+        </ul>
+</div>
+
+      <h2 id="argv">argv</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">sequence</a> Action.argv</pre></p>
+
+    For actions created by <a href="actions.html#run">ctx.actions.run()</a> or <a href="actions.html#run_shell">ctx.actions.run_shell()</a>  an immutable list of the arguments for the command line to be executed. Note that for shell actions the first two arguments will be the shell path and <code>"-c"</code>.
+
+         May return <code>None</code>.
+
+        <h2 id="content">content</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="string.html">string</a> Action.content</pre></p>
+
+    For actions created by <a href="actions.html#write">ctx.actions.write()</a> or <a href="actions.html#expand_template">ctx.actions.expand_template()</a>, the contents of the file to be written.
+
+         May return <code>None</code>.
+
+        <h2 id="inputs">inputs</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> Action.inputs</pre></p>
+
+    A set of the input files of this action.
+
+
+        <h2 id="outputs">outputs</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> Action.outputs</pre></p>
+
+    A set of the output files of this action.
+
+
+        <h2 id="substitutions">substitutions</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="dict.html">dict</a> Action.substitutions</pre></p>
+
+    For actions created by <a href="actions.html#expand_template">ctx.actions.expand_template()</a>, an immutable dict holding the substitution mapping.
+
+         May return <code>None</code>.
+
+

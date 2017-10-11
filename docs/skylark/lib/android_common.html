@@ -1,0 +1,30 @@
+---
+layout: documentation
+title: android_common
+---
+<h1 id="modules.android_common">android_common</h1>
+
+Common utilities and fucntionality related to Android rules.
+
+<div class="toc">
+  <h2>Methods</h2>
+  <ul>
+          <li><a href="#multi_cpu_configuration">multi_cpu_configuration</a></li>
+              <li><a href="#resource_source_directory">resource_source_directory</a></li>
+        </ul>
+</div>
+
+      <h2 id="multi_cpu_configuration">multi_cpu_configuration</h2>
+        <p><pre class="rule-signature">SplitTransition android_common.multi_cpu_configuration</pre></p>
+
+    A configuration for rule attributes that compiles native code according to the --fat_apk_cpu and --android_crosstool_top flags.
+
+
+        <h2 id="resource_source_directory">resource_source_directory</h2>
+        <p><pre class="rule-signature">PathFragment android_common.resource_source_directory()</pre></p>
+
+    Returns a source directory for Android resource file. The source directory is a prefix of resource's relative path up to a directory that designates resource kind (cf. http://developer.android.com/guide/topics/resources/providing-resources.html).
+
+         May return <code>None</code>.
+
+

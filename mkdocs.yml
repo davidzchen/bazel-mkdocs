@@ -1,0 +1,43 @@
+site_name: Bazel
+theme: 'material'
+extra:
+  palette:
+    primary: 'green'
+    accent: 'green'
+
+repo_name: 'bazelbuild/bazel'
+repo_url: 'https://github.com/bazelbuild/bazel'
+
+pages:
+  - Bazel Overview: 'bazel-overview.md'
+  - Installing:
+    - Installing Bazel: 'install.md'
+    - Installing Bazel on Ubuntu: 'install-ubuntu.md'
+    - Installing Bazel on Fedora and Centos: 'install-redhat.md'
+    - Installing Bazel on macOS (OS X): 'install-os-x.md'
+    - Installing Bazel on Windows: 'install-windows.md'
+    - Compile Bazel from Source: 'install-compile-source.md'
+  - Getting Started: 'getting-started.md'
+  - Tutorial:
+    - Build a Java Project: 'tutorial/java.md'
+    - Build a C++ Project: 'tutorial/cpp.md'
+    - Build an Android App: 'tutorial/android-app.md'
+    - Build an iOS App: 'tutorial/ios-app.md'
+  - IDE Integration: 'ide.md'
+
+  - Concepts and Terminology: 'build-ref.html'
+  - User Manual: 'user-manual.html'
+  - C++:
+    - C++ and Bazel: 'bazel-and-cpp.md'
+    - C++ Use Cases: 'cpp-use-cases.md'
+  - Java:
+    - Java and Bazel: 'bazel-and-java.md'
+    - Migrating from Maven to Bazel: 'migrate-maven.md'
+    - Generate External Dependencies from Maven: 'generate-workspace.md'
+  - Android:
+    - Android and Bazel: 'bazel-and-android.md'
+    - mobile-install: 'mobile-install.md'
+  - Apple:
+    - Apple apps and Bazel: 'bazel-and-apple.md'
+    - Migrating from XCode to Bazel: 'migrate-xcode.md'
+  - Writing Tests: 'test-encyclopedia.html'

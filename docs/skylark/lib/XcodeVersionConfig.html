@@ -1,0 +1,37 @@
+---
+layout: documentation
+title: XcodeVersionConfig
+---
+<h1 id="modules.XcodeVersionConfig">XcodeVersionConfig</h1>
+
+The set of Apple versions computed from command line options and the xcode_config rule.
+
+<div class="toc">
+  <h2>Methods</h2>
+  <ul>
+          <li><a href="#minimum_os_for_platform_type">minimum_os_for_platform_type</a></li>
+              <li><a href="#sdk_version_for_platform">sdk_version_for_platform</a></li>
+              <li><a href="#xcode_version">xcode_version</a></li>
+        </ul>
+</div>
+
+      <h2 id="minimum_os_for_platform_type">minimum_os_for_platform_type</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="DottedVersion.html">DottedVersion</a> XcodeVersionConfig.minimum_os_for_platform_type()</pre></p>
+
+    The minimum compatible OS version for target simulator and devices for a particular platform type.
+
+
+        <h2 id="sdk_version_for_platform">sdk_version_for_platform</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="DottedVersion.html">DottedVersion</a> XcodeVersionConfig.sdk_version_for_platform()</pre></p>
+
+    The version of the platform SDK that will be used to build targets for the given platform.
+
+
+        <h2 id="xcode_version">xcode_version</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="DottedVersion.html">DottedVersion</a> XcodeVersionConfig.xcode_version()</pre></p>
+
+    Returns the Xcode version that is being used to build.<p>This will return <code>None</code> if no Xcode versions are available.
+
+         May return <code>None</code>.
+
+

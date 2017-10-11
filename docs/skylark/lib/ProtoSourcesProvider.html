@@ -1,0 +1,57 @@
+---
+layout: documentation
+title: ProtoSourcesProvider
+---
+<h1 id="modules.ProtoSourcesProvider">ProtoSourcesProvider</h1>
+
+
+
+<div class="toc">
+  <h2>Methods</h2>
+  <ul>
+          <li><a href="#check_deps_sources">check_deps_sources</a></li>
+              <li><a href="#direct_descriptor_set">direct_descriptor_set</a></li>
+              <li><a href="#direct_sources">direct_sources</a></li>
+              <li><a href="#transitive_descriptor_sets">transitive_descriptor_sets</a></li>
+              <li><a href="#transitive_imports">transitive_imports</a></li>
+              <li><a href="#transitive_sources">transitive_sources</a></li>
+        </ul>
+</div>
+
+      <h2 id="check_deps_sources">check_deps_sources</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ProtoSourcesProvider.check_deps_sources</pre></p>
+
+    Proto sources from the 'srcs' attribute. If the library is a proxy library that has no sources, it contains the check_deps_sources from this library's direct deps.
+
+
+        <h2 id="direct_descriptor_set">direct_descriptor_set</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="File.html">File</a> ProtoSourcesProvider.direct_descriptor_set</pre></p>
+
+    The FileDescriptorSet of the direct sources. If no srcs, contains an empty file.
+
+
+        <h2 id="direct_sources">direct_sources</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">list</a> ProtoSourcesProvider.direct_sources</pre></p>
+
+    Proto sources from the 'srcs' attribute.
+
+
+        <h2 id="transitive_descriptor_sets">transitive_descriptor_sets</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ProtoSourcesProvider.transitive_descriptor_sets</pre></p>
+
+    A set of FileDescriptorSet files of all dependent proto_library rules, and this one's. This is not the same as passing --include_imports to proto-compiler. Will be empty if no dependencies.
+
+
+        <h2 id="transitive_imports">transitive_imports</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ProtoSourcesProvider.transitive_imports</pre></p>
+
+    Transitive imports including weak dependencies.
+
+
+        <h2 id="transitive_sources">transitive_sources</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="depset.html">depset</a> ProtoSourcesProvider.transitive_sources</pre></p>
+
+    Proto sources for this rule and all its dependent protocol buffer rules.
+
+
+

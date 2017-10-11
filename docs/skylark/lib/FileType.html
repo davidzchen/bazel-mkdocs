@@ -1,0 +1,54 @@
+---
+layout: documentation
+title: FileType
+---
+<h1 id="modules.FileType">FileType</h1>
+
+Deprecated. File type for file filtering. Can be used to filter collections of labels for certain file types.
+
+<div class="toc">
+  <h2>Methods</h2>
+  <ul>
+          <li><a href="#FileType">FileType</a></li>
+              <li><a href="#filter">filter</a></li>
+        </ul>
+</div>
+
+      <h2 id="FileType">FileType</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="FileType.html">FileType</a> FileType.FileType(types=[])
+</pre></p>
+
+    Deprecated. Creates a file filter from a list of strings. For example, to match files ending with .cc or .cpp, use: <pre class=language-python>FileType([".cc", ".cpp"])</pre>
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="FileType.types">
+              <code>types</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="string.html">string</a>s</code></p>
+                          <p>a list of the accepted file extensions.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="filter">filter</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">list</a> FileType.filter()</pre></p>
+
+    Returns a list created from the elements of the parameter containing all the <a href="File.html"><code>File</code></a>s that match the FileType. The parameter must be a <a href="depset.html"><code>depset</code></a> or a <a href="list.html"><code>list</code></a>.
+
+
+

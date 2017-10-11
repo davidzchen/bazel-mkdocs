@@ -1,0 +1,86 @@
+---
+layout: documentation
+title: apple
+---
+<h1 id="modules.apple">apple</h1>
+
+A configuration fragment for Apple platforms.
+
+<div class="toc">
+  <h2>Methods</h2>
+  <ul>
+          <li><a href="#apple_host_system_env">apple_host_system_env</a></li>
+              <li><a href="#bitcode_mode">bitcode_mode</a></li>
+              <li><a href="#ios_cpu">ios_cpu</a></li>
+              <li><a href="#ios_cpu_platform">ios_cpu_platform</a></li>
+              <li><a href="#multi_arch_platform">multi_arch_platform</a></li>
+              <li><a href="#sdk_version_for_platform">sdk_version_for_platform</a></li>
+              <li><a href="#single_arch_cpu">single_arch_cpu</a></li>
+              <li><a href="#single_arch_platform">single_arch_platform</a></li>
+              <li><a href="#target_apple_env">target_apple_env</a></li>
+              <li><a href="#xcode_toolchain">xcode_toolchain</a></li>
+        </ul>
+</div>
+
+      <h2 id="apple_host_system_env">apple_host_system_env</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="dict.html">dict</a> apple.apple_host_system_env()</pre></p>
+
+    Returns a <a href='dict.html'>dict</a> of environment variables that should be set for actions that need to run build tools on an Apple host system, such as the version of Xcode that should be used. The keys are variable names and the values are their corresponding values.
+
+
+        <h2 id="bitcode_mode">bitcode_mode</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="apple_bitcode_mode.html">apple_bitcode_mode</a> apple.bitcode_mode</pre></p>
+
+    Returns the Bitcode mode to use for compilation steps.<p>This field is only valid for device builds; for simulator builds, it always returns <code>'none'</code>.
+
+
+        <h2 id="ios_cpu">ios_cpu</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="string.html">string</a> apple.ios_cpu()</pre></p>
+
+    <b>Deprecated. Use <a href='#single_arch_cpu'>single_arch_cpu</a> instead.</b> The value of ios_cpu for this configuration.
+
+
+        <h2 id="ios_cpu_platform">ios_cpu_platform</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="apple_platform.html">apple_platform</a> apple.ios_cpu_platform()</pre></p>
+
+    <b>Deprecated. Use <a href='#single_arch_platform'>single_arch_platform</a> or <a href='#multi_arch_platform'>multi_arch_platform</a> instead.</b> The platform given by the ios_cpu flag.
+
+
+        <h2 id="multi_arch_platform">multi_arch_platform</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="apple_platform.html">apple_platform</a> apple.multi_arch_platform()</pre></p>
+
+    The platform of the current configuration for the given platform type. This should only be invoked in a context where multiple architectures may be supported; consider <a href='#single_arch_platform'>single_arch_platform</a> for other cases.
+
+
+        <h2 id="sdk_version_for_platform">sdk_version_for_platform</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="DottedVersion.html">DottedVersion</a> apple.sdk_version_for_platform()</pre></p>
+
+    The version of the platform SDK that will be used to build targets for the given platform.
+
+
+        <h2 id="single_arch_cpu">single_arch_cpu</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="string.html">string</a> apple.single_arch_cpu</pre></p>
+
+    The single "effective" architecture for this configuration (e.g., <code>i386</code> or <code>arm64</code>) in the context of rule logic that is only concerned with a single architecture (such as <code>objc_library</code>, which registers single-architecture compile actions).
+
+
+        <h2 id="single_arch_platform">single_arch_platform</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="apple_platform.html">apple_platform</a> apple.single_arch_platform</pre></p>
+
+    The platform of the current configuration. This should only be invoked in a context where only a single architecture may be supported; consider <a href='#multi_arch_platform'>multi_arch_platform</a> for other cases.
+
+
+        <h2 id="target_apple_env">target_apple_env</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="dict.html">dict</a> apple.target_apple_env()</pre></p>
+
+    Returns a <code>dict</code> of environment variables that should be set for actions that build targets of the given Apple platform type. For example, this dictionary contains variables that denote the platform name and SDK version with which to build. The keys are variable names and the values are their corresponding values.
+
+
+        <h2 id="xcode_toolchain">xcode_toolchain</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="string.html">string</a> apple.xcode_toolchain</pre></p>
+
+    Identifier for the custom Xcode toolchain to use in build, or <code>None</code> if it is not specified.
+
+         May return <code>None</code>.
+
+

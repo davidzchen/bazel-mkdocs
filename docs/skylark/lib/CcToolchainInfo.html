@@ -1,0 +1,43 @@
+---
+layout: documentation
+title: CcToolchainInfo
+---
+<h1 id="modules.CcToolchainInfo">CcToolchainInfo</h1>
+
+Information about the C++ compiler being used.
+
+<div class="toc">
+  <h2>Methods</h2>
+  <ul>
+          <li><a href="#built_in_include_directories">built_in_include_directories</a></li>
+              <li><a href="#link_options_do_not_use">link_options_do_not_use</a></li>
+              <li><a href="#sysroot">sysroot</a></li>
+              <li><a href="#unfiltered_compiler_options_do_not_use">unfiltered_compiler_options_do_not_use</a></li>
+        </ul>
+</div>
+
+      <h2 id="built_in_include_directories">built_in_include_directories</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">list</a> CcToolchainInfo.built_in_include_directories</pre></p>
+
+    Returns the list of built-in directories of the compiler.
+
+
+        <h2 id="link_options_do_not_use">link_options_do_not_use</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">list</a> CcToolchainInfo.link_options_do_not_use</pre></p>
+
+    Returns the set of command-line linker options, including any flags inferred from the command-line options.
+
+
+        <h2 id="sysroot">sysroot</h2>
+        <p><pre class="rule-signature">PathFragment CcToolchainInfo.sysroot</pre></p>
+
+    Returns the sysroot to be used. If the toolchain compiler does not support different sysroots, or the sysroot is the same as the default sysroot, then this method returns <code>None</code>.
+
+
+        <h2 id="unfiltered_compiler_options_do_not_use">unfiltered_compiler_options_do_not_use</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">list</a> CcToolchainInfo.unfiltered_compiler_options_do_not_use()</pre></p>
+
+    Returns the default list of options which cannot be filtered by BUILD rules. These should be appended to the command line after filtering.
+
+
+

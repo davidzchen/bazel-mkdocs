@@ -1,0 +1,79 @@
+---
+layout: documentation
+title: testing
+---
+<h1 id="modules.testing">testing</h1>
+
+Helper methods for skylark to access testing infrastructure.
+
+<div class="toc">
+  <h2>Methods</h2>
+  <ul>
+          <li><a href="#ExecutionInfo">ExecutionInfo</a></li>
+              <li><a href="#TestEnvironment">TestEnvironment</a></li>
+        </ul>
+</div>
+
+      <h2 id="ExecutionInfo">ExecutionInfo</h2>
+        <p><pre class="rule-signature">struct testing.ExecutionInfo(requirements)
+</pre></p>
+
+    Creates a new execution info provider. Use this provider to specify specialenvironments requirements needed to run tests.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="ExecutionInfo.requirements">
+              <code>requirements</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="dict.html">dict</a></code></p>
+                          <p>A map of string keys and values to indicate special execution requirements, such as hardware platforms, etc. These keys and values are passed to the executor of the test action as parameters to configure the execution environment.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="TestEnvironment">TestEnvironment</h2>
+        <p><pre class="rule-signature">struct testing.TestEnvironment(environment)
+</pre></p>
+
+    Creates a new test environment provider. Use this provider to specify extraenvironment variables to be made available during test execution.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="TestEnvironment.environment">
+              <code>environment</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="dict.html">dict</a></code></p>
+                          <p>A map of string keys and values that represent environment variables and their values. These will be made available during the test execution.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+

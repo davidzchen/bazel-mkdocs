@@ -1,0 +1,43 @@
+---
+layout: documentation
+title: platform_common
+---
+<h1 id="modules.platform_common">platform_common</h1>
+
+Functions for Skylark to interact with the platform APIs.
+
+<div class="toc">
+  <h2>Methods</h2>
+  <ul>
+          <li><a href="#ConstraintSettingInfo">ConstraintSettingInfo</a></li>
+              <li><a href="#ConstraintValueInfo">ConstraintValueInfo</a></li>
+              <li><a href="#PlatformInfo">PlatformInfo</a></li>
+              <li><a href="#ToolchainInfo">ToolchainInfo</a></li>
+        </ul>
+</div>
+
+      <h2 id="ConstraintSettingInfo">ConstraintSettingInfo</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Provider.html">Provider</a> platform_common.ConstraintSettingInfo</pre></p>
+
+    The provider constructor for ConstraintSettingInfo. The constructor takes the label that uniquely identifies the constraint (and which should always be ctx.label).
+
+
+        <h2 id="ConstraintValueInfo">ConstraintValueInfo</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Provider.html">Provider</a> platform_common.ConstraintValueInfo</pre></p>
+
+    The provider constructor for ConstraintValueInfo. The constructor takes the label that uniquely identifies the constraint value (and which should always be ctx.label), and the ConstraintSettingInfo which the value belongs to.
+
+
+        <h2 id="PlatformInfo">PlatformInfo</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Provider.html">Provider</a> platform_common.PlatformInfo</pre></p>
+
+    The provider constructor for PlatformInfo. The constructor takes the list of ConstraintValueInfo providers that defines the platform.
+
+
+        <h2 id="ToolchainInfo">ToolchainInfo</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Provider.html">Provider</a> platform_common.ToolchainInfo</pre></p>
+
+    The provider constructor for ToolchainInfo. The constructor takes the type of the toolchain, and a map of the toolchain's data.
+
+
+

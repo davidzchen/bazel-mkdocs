@@ -1,0 +1,169 @@
+---
+layout: documentation
+title: Args
+---
+<h1 id="modules.Args">Args</h1>
+
+Module providing methods to build memory-efficient command lines.<br><br>The command lines are memory-efficient because Bazel doesn't fully construct them until just before executing the action. See <a href="actions.html#run">ctx.actions.run()</a> or <a href="actions.html#run_shell">ctx.actions.run_shell()</a>.<br>Example:<pre class=language-python>
+# foo_deps and bar_deps are each a large depset of artifacts
+args = ctx.actions.args()
+args.add("--foo")
+args.add(foo_deps)
+args.add("--bar")
+args.add(bar_deps, join_with=",")
+ctx.run(
+  arguments = [args],
+  ...
+)
+# Expands to [
+#   "--foo",
+#   ...artifacts from foo_deps,
+#   "--bar",
+#   ...artifacts from bar_deps joined with ',',
+# ]</pre>
+
+<div class="toc">
+  <h2>Methods</h2>
+  <ul>
+          <li><a href="#add">add</a></li>
+              <li><a href="#set_param_file_format">set_param_file_format</a></li>
+              <li><a href="#use_param_file">use_param_file</a></li>
+        </ul>
+</div>
+
+      <h2 id="add">add</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> Args.add(value, *, format=None, before_each=None, join_with=None, map_fn=None)
+</pre></p>
+
+    Adds an argument to be dynamically expanded at evaluation time.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="add.value">
+              <code>value</code>
+            </td>
+            <td>
+                          <p>the object to add to the argument list. If the object is scalar, the object's string representation is added. If it's a <a href="list.html">list</a> or <a href="depset.html">depset</a>, each element's string representation is added.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="add.format">
+              <code>format</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>a format string used to format the object(s). The format string is as per pattern % tuple. Limitations: only %d %s %r %% are supported.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="add.before_each">
+              <code>before_each</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>each object in the list is prepended by this string. Only supported for vector arguments.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="add.join_with">
+              <code>join_with</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>each object in the list is joined with this string. Only supported for vector arguments.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="add.map_fn">
+              <code>map_fn</code>
+            </td>
+            <td>
+                          <p><code>function</code></p>
+                          <p>The passed objects are passed through a map function. For vector args the function is given a list and is expected to return a list.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="set_param_file_format">set_param_file_format</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> Args.set_param_file_format(format)</pre></p>
+
+    sets the format of the param file when written to disk
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="set_param_file_format.format">
+              <code>format</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>the format of the param file. Must be one of:<br>"shell": All arguments are shell quoted and separated by whitespace<br>"multiline": All arguments are unquoted and separated by newline charactersThe format defaults to "shell" if not called.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="use_param_file">use_param_file</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> Args.use_param_file(param_file_arg, *, use_always=False)</pre></p>
+
+    Spills the args to a params file, replacing them with a pointer to the param file. Use when your args may be too large for the system's command length limits
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="use_param_file.param_file_arg">
+              <code>param_file_arg</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>a format string with a single "%s". If the args are spilled to a params file then they are replaced with an argument consisting of this string formatted withthe path of the params file.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="use_param_file.use_always">
+              <code>use_always</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>whether to always spill the args to a params file. If false, bazel will decide whether the arguments need to be spilled based on your system and arg length.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+

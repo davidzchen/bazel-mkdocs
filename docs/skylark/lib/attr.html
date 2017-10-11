@@ -1,0 +1,981 @@
+---
+layout: documentation
+title: attr
+---
+<h1 id="modules.attr">attr</h1>
+
+Module for creating new attributes. They are only for use with <a href="globals.html#rule">rule</a> or <a href="globals.html#aspect">aspect</a>.
+
+<div class="toc">
+  <h2>Methods</h2>
+  <ul>
+          <li><a href="#bool">bool</a></li>
+              <li><a href="#int">int</a></li>
+              <li><a href="#int_list">int_list</a></li>
+              <li><a href="#label">label</a></li>
+              <li><a href="#label_keyed_string_dict">label_keyed_string_dict</a></li>
+              <li><a href="#label_list">label_list</a></li>
+              <li><a href="#license">license</a></li>
+              <li><a href="#output">output</a></li>
+              <li><a href="#output_list">output_list</a></li>
+              <li><a href="#string">string</a></li>
+              <li><a href="#string_dict">string_dict</a></li>
+              <li><a href="#string_list">string_list</a></li>
+              <li><a href="#string_list_dict">string_list_dict</a></li>
+        </ul>
+</div>
+
+      <h2 id="bool">bool</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Attribute.html">Attribute</a> attr.bool(default=False, doc='', mandatory=False)
+</pre></p>
+
+    Creates an attribute of type bool.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="bool.default">
+              <code>default</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>the default value of the attribute.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="bool.doc">
+              <code>doc</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>a description of the attribute that can be extracted by documentation generating tools.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="bool.mandatory">
+              <code>mandatory</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the value must be explicitly specified</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="int">int</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Attribute.html">Attribute</a> attr.int(default=0, doc='', mandatory=False, values=[])
+</pre></p>
+
+    Creates an attribute of type int.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="int.default">
+              <code>default</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="int.html">int</a></code></p>
+                          <p>the default value of the attribute.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="int.doc">
+              <code>doc</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>a description of the attribute that can be extracted by documentation generating tools.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="int.mandatory">
+              <code>mandatory</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the value must be explicitly specified</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="int.values">
+              <code>values</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="int.html">int</a>s</code></p>
+                          <p>the list of allowed values for the attribute. An error is raised if any other value is given.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="int_list">int_list</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Attribute.html">Attribute</a> attr.int_list(default=[], *, doc='', mandatory=False, non_empty=False, allow_empty=True)
+</pre></p>
+
+    Creates an attribute which is a <a href="list.html">list</a> of ints.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="int_list.default">
+              <code>default</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="int.html">int</a>s</code></p>
+                          <p>the default value of the attribute.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="int_list.doc">
+              <code>doc</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>a description of the attribute that can be extracted by documentation generating tools.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="int_list.mandatory">
+              <code>mandatory</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the value must be explicitly specified</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="int_list.non_empty">
+              <code>non_empty</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the attribute must not be empty. Deprecated: Use allow_empty instead.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="int_list.allow_empty">
+              <code>allow_empty</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the attribute can be empty</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="label">label</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Attribute.html">Attribute</a> attr.label(default=None, doc='', executable=False, allow_files=None, allow_single_file=None, mandatory=False, providers=[], allow_rules=None, single_file=False, cfg=None, aspects=[])
+</pre></p>
+
+    Creates an attribute of type <a href="Target.html">Target</a> which is the target referred to by the label. It is the only way to specify a dependency to another target. If you need a dependency that the user cannot overwrite, <a href="../rules.html#private-attributes">make the attribute private</a>.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="label.default">
+              <code>default</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="Label.html">Label</a>; or <a class="anchor" href="string.html">string</a></code></p>
+                          <p>the default value of the attribute.Use a string or the <a href="globals.html#Label"><code>Label</code></a> function to specify a default value ex: <code>attr.label(default = "//a:b")</code></p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label.doc">
+              <code>doc</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>a description of the attribute that can be extracted by documentation generating tools.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label.executable">
+              <code>executable</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the labels have to be executable. This means the label must refer to an executable file, or to a rule that outputs an executable file. Access the labels with <code>ctx.executable.&lt;attribute_name&gt;</code>.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label.allow_files">
+              <code>allow_files</code>
+            </td>
+            <td>
+                          <p>whether File targets are allowed. Can be True, False (default), or a list of file extensions that are allowed (e.g. <code>[".cc", ".cpp"]</code>).</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label.allow_single_file">
+              <code>allow_single_file</code>
+            </td>
+            <td>
+                          <p>This is similar to <code>allow_files</code>, with the restriction that the label must correspond to a single <a href="File.html">File</a>. Access it through <code>ctx.file.&lt;attribute_name&gt;</code>.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label.mandatory">
+              <code>mandatory</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the value must be explicitly specified</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label.providers">
+              <code>providers</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a></code></p>
+                          <p>mandatory providers list. It should be either a list of providers, or a list of lists of providers. Every dependency should provide ALL providers from at least ONE of these lists. A single list of providers will be automatically converted to a list containing one list of providers.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label.allow_rules">
+              <code>allow_rules</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="string.html">string</a>s</code></p>
+                          <p>which rule targets (name of the classes) are allowed. This is deprecated (kept only for compatibility), use providers instead.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label.single_file">
+              <code>single_file</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>Deprecated: Use <code>allow_single_file</code> instead. If True, the label must correspond to a single <a href="File.html">File</a>. Access it through <code>ctx.file.&lt;attribute_name&gt;</code>.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label.cfg">
+              <code>cfg</code>
+            </td>
+            <td>
+                          <p>configuration of the attribute. It can be either "data", "host", or "target". This parameter is required if <code>executable</code> is True.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label.aspects">
+              <code>aspects</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="Aspect.html">Aspect</a>s</code></p>
+                          <p>aspects that should be applied to the dependency or dependencies specified by this attribute</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="label_keyed_string_dict">label_keyed_string_dict</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Attribute.html">Attribute</a> attr.label_keyed_string_dict(default={}, doc='', allow_files=None, allow_rules=None, providers=[], flags=[], mandatory=False, non_empty=False, allow_empty=True, cfg=None, aspects=[])
+</pre></p>
+
+    Creates an attribute which is a <a href="dict.html">dict</a>. Its keys are type <a href="Target.html">Target</a> and are specified by the label keys of the input dict. Its values are <a href="string.html">strings</a>. See <a href="attr.html#label">label</a> for more information.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="label_keyed_string_dict.default">
+              <code>default</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="dict.html">dict</a></code></p>
+                          <p>the default value of the attribute.Use strings or the <a href="globals.html#Label"><code>Label</code></a> function to specify default values ex: <code>attr.label_keyed_string_dict(default = {"//a:b": "value", "//a:c": "string"})</code></p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label_keyed_string_dict.doc">
+              <code>doc</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>a description of the attribute that can be extracted by documentation generating tools.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label_keyed_string_dict.allow_files">
+              <code>allow_files</code>
+            </td>
+            <td>
+                          <p>whether File targets are allowed. Can be True, False (default), or a list of file extensions that are allowed (e.g. <code>[".cc", ".cpp"]</code>).</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label_keyed_string_dict.allow_rules">
+              <code>allow_rules</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="string.html">string</a>s</code></p>
+                          <p>which rule targets (name of the classes) are allowed. This is deprecated (kept only for compatibility), use providers instead.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label_keyed_string_dict.providers">
+              <code>providers</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a></code></p>
+                          <p>mandatory providers list. It should be either a list of providers, or a list of lists of providers. Every dependency should provide ALL providers from at least ONE of these lists. A single list of providers will be automatically converted to a list containing one list of providers.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label_keyed_string_dict.flags">
+              <code>flags</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="string.html">string</a>s</code></p>
+                          <p>deprecated, will be removed</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label_keyed_string_dict.mandatory">
+              <code>mandatory</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the value must be explicitly specified</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label_keyed_string_dict.non_empty">
+              <code>non_empty</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the attribute must not be empty. Deprecated: Use allow_empty instead.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label_keyed_string_dict.allow_empty">
+              <code>allow_empty</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the attribute can be empty</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label_keyed_string_dict.cfg">
+              <code>cfg</code>
+            </td>
+            <td>
+                          <p>configuration of the attribute. It can be either "data", "host", or "target". This parameter is required if <code>executable</code> is True.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label_keyed_string_dict.aspects">
+              <code>aspects</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="Aspect.html">Aspect</a>s</code></p>
+                          <p>aspects that should be applied to the dependency or dependencies specified by this attribute</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="label_list">label_list</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Attribute.html">Attribute</a> attr.label_list(default=[], doc='', allow_files=None, allow_rules=None, providers=[], flags=[], mandatory=False, non_empty=False, allow_empty=True, cfg=None, aspects=[])
+</pre></p>
+
+    Creates an attribute which is a <a href="list.html">list</a> of type <a href="Target.html">Target</a> which are specified by the labels in the list. See <a href="attr.html#label">label</a> for more information.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="label_list.default">
+              <code>default</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="Label.html">Label</a>s</code></p>
+                          <p>the default value of the attribute.Use strings or the <a href="globals.html#Label"><code>Label</code></a> function to specify default values ex: <code>attr.label_list(default = ["//a:b", "//a:c"])</code></p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label_list.doc">
+              <code>doc</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>a description of the attribute that can be extracted by documentation generating tools.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label_list.allow_files">
+              <code>allow_files</code>
+            </td>
+            <td>
+                          <p>whether File targets are allowed. Can be True, False (default), or a list of file extensions that are allowed (e.g. <code>[".cc", ".cpp"]</code>).</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label_list.allow_rules">
+              <code>allow_rules</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="string.html">string</a>s</code></p>
+                          <p>which rule targets (name of the classes) are allowed. This is deprecated (kept only for compatibility), use providers instead.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label_list.providers">
+              <code>providers</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a></code></p>
+                          <p>mandatory providers list. It should be either a list of providers, or a list of lists of providers. Every dependency should provide ALL providers from at least ONE of these lists. A single list of providers will be automatically converted to a list containing one list of providers.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label_list.flags">
+              <code>flags</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="string.html">string</a>s</code></p>
+                          <p>deprecated, will be removed</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label_list.mandatory">
+              <code>mandatory</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the value must be explicitly specified</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label_list.non_empty">
+              <code>non_empty</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the attribute must not be empty. Deprecated: Use allow_empty instead.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label_list.allow_empty">
+              <code>allow_empty</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the attribute can be empty</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label_list.cfg">
+              <code>cfg</code>
+            </td>
+            <td>
+                          <p>configuration of the attribute. It can be either "data", "host", or "target". This parameter is required if <code>executable</code> is True.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="label_list.aspects">
+              <code>aspects</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="Aspect.html">Aspect</a>s</code></p>
+                          <p>aspects that should be applied to the dependency or dependencies specified by this attribute</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="license">license</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Attribute.html">Attribute</a> attr.license(default=None, doc='', mandatory=False)
+</pre></p>
+
+    Creates an attribute of type license.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="license.default">
+              <code>default</code>
+            </td>
+            <td>
+                          <p>the default value of the attribute.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="license.doc">
+              <code>doc</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>a description of the attribute that can be extracted by documentation generating tools.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="license.mandatory">
+              <code>mandatory</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the value must be explicitly specified</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="output">output</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Attribute.html">Attribute</a> attr.output(default=None, doc='', mandatory=False)
+</pre></p>
+
+    Creates an attribute of type output. The user provides a file name (string) and the rule must create an action that generates the file.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="output.default">
+              <code>default</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="Label.html">Label</a></code></p>
+                          <p>the default value of the attribute.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="output.doc">
+              <code>doc</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>a description of the attribute that can be extracted by documentation generating tools.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="output.mandatory">
+              <code>mandatory</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the value must be explicitly specified</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="output_list">output_list</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Attribute.html">Attribute</a> attr.output_list(default=[], doc='', mandatory=False, non_empty=False, allow_empty=True)
+</pre></p>
+
+    Creates an attribute which is a <a href="list.html">list</a> of outputs. See <a href="attr.html#output">output</a> for more information.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="output_list.default">
+              <code>default</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="Label.html">Label</a>s</code></p>
+                          <p>the default value of the attribute.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="output_list.doc">
+              <code>doc</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>a description of the attribute that can be extracted by documentation generating tools.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="output_list.mandatory">
+              <code>mandatory</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the value must be explicitly specified</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="output_list.non_empty">
+              <code>non_empty</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the attribute must not be empty. Deprecated: Use allow_empty instead.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="output_list.allow_empty">
+              <code>allow_empty</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the attribute can be empty</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="string">string</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Attribute.html">Attribute</a> attr.string(default='', doc='', mandatory=False, values=[])
+</pre></p>
+
+    Creates an attribute of type <a href="string.html">string</a>.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="string.default">
+              <code>default</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>the default value of the attribute.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="string.doc">
+              <code>doc</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>a description of the attribute that can be extracted by documentation generating tools.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="string.mandatory">
+              <code>mandatory</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the value must be explicitly specified</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="string.values">
+              <code>values</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="string.html">string</a>s</code></p>
+                          <p>the list of allowed values for the attribute. An error is raised if any other value is given.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="string_dict">string_dict</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Attribute.html">Attribute</a> attr.string_dict(default={}, doc='', mandatory=False, non_empty=False, allow_empty=True)
+</pre></p>
+
+    Creates an attribute of type <a href="dict.html">dict</a>, mapping from <a href="string.html">string</a> to <a href="string.html">string</a>.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="string_dict.default">
+              <code>default</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="dict.html">dict</a></code></p>
+                          <p>the default value of the attribute.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="string_dict.doc">
+              <code>doc</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>a description of the attribute that can be extracted by documentation generating tools.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="string_dict.mandatory">
+              <code>mandatory</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the value must be explicitly specified</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="string_dict.non_empty">
+              <code>non_empty</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the attribute must not be empty. Deprecated: Use allow_empty instead.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="string_dict.allow_empty">
+              <code>allow_empty</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the attribute can be empty</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="string_list">string_list</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Attribute.html">Attribute</a> attr.string_list(default=[], *, doc='', mandatory=False, non_empty=False, allow_empty=True)
+</pre></p>
+
+    Creates an attribute which is a <a href="list.html">list</a> of <a href="string.html">strings</a>.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="string_list.default">
+              <code>default</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="string.html">string</a>s</code></p>
+                          <p>the default value of the attribute.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="string_list.doc">
+              <code>doc</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>a description of the attribute that can be extracted by documentation generating tools.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="string_list.mandatory">
+              <code>mandatory</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the value must be explicitly specified</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="string_list.non_empty">
+              <code>non_empty</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the attribute must not be empty. Deprecated: Use allow_empty instead.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="string_list.allow_empty">
+              <code>allow_empty</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the attribute can be empty</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="string_list_dict">string_list_dict</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Attribute.html">Attribute</a> attr.string_list_dict(default={}, doc='', mandatory=False, non_empty=False, allow_empty=True)
+</pre></p>
+
+    Creates an attribute of type <a href="dict.html">dict</a>, mapping from <a href="string.html">string</a> to <a href="list.html">list</a> of <a href="string.html">string</a>.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="string_list_dict.default">
+              <code>default</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="dict.html">dict</a></code></p>
+                          <p>the default value of the attribute.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="string_list_dict.doc">
+              <code>doc</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>a description of the attribute that can be extracted by documentation generating tools.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="string_list_dict.mandatory">
+              <code>mandatory</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the value must be explicitly specified</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="string_list_dict.non_empty">
+              <code>non_empty</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the attribute must not be empty. Deprecated: Use allow_empty instead.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="string_list_dict.allow_empty">
+              <code>allow_empty</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>True if the attribute can be empty</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+

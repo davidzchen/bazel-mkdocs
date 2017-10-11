@@ -1,0 +1,474 @@
+---
+layout: documentation
+title: actions
+---
+<h1 id="modules.actions">actions</h1>
+
+Module providing functions to create actions.
+
+<div class="toc">
+  <h2>Methods</h2>
+  <ul>
+          <li><a href="#args">args</a></li>
+              <li><a href="#declare_directory">declare_directory</a></li>
+              <li><a href="#declare_file">declare_file</a></li>
+              <li><a href="#do_nothing">do_nothing</a></li>
+              <li><a href="#expand_template">expand_template</a></li>
+              <li><a href="#run">run</a></li>
+              <li><a href="#run_shell">run_shell</a></li>
+              <li><a href="#write">write</a></li>
+        </ul>
+</div>
+
+      <h2 id="args">args</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Args.html">Args</a> actions.args()
+</pre></p>
+
+    returns an Args object that can be used to build memory-efficient command lines.
+
+
+        <h2 id="declare_directory">declare_directory</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="File.html">File</a> actions.declare_directory(filename, *, sibling=None)</pre></p>
+
+    Declares that rule or aspect create a directory with the given name, in the current package. You must create an action that generates the directory.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="declare_directory.filename">
+              <code>filename</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>If no 'sibling' provided, path of the new directory, relative to the current package. Otherwise a base name for a file ('sibling' defines a directory).</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="declare_directory.sibling">
+              <code>sibling</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="File.html">File</a></code></p>
+                          <p>A file that lives in the same directory as the newly declared directory.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="declare_file">declare_file</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="File.html">File</a> actions.declare_file(filename, *, sibling=None)</pre></p>
+
+    Declares that rule or aspect creates a file with the given filename. If <code>sibling</code> is not specified, file name is relative to package directory, otherwise the file is in the same directory as <code>sibling</code>. You must create an action that generates the file. <br>Files that are specified in rule's outputs do not need to be declared and are available through <a href="ctx.html#outputs">ctx.outputs</a>.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="declare_file.filename">
+              <code>filename</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>If no 'sibling' provided, path of the new file, relative to the current package. Otherwise a base name for a file ('sibling' determines a directory).</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="declare_file.sibling">
+              <code>sibling</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="File.html">File</a></code></p>
+                          <p>A file that lives in the same directory as the newly created file.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="do_nothing">do_nothing</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> actions.do_nothing(mnemonic, inputs=[])</pre></p>
+
+    Creates an empty action that neither executes a command nor produces any output, but that is useful for inserting 'extra actions'.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="do_nothing.mnemonic">
+              <code>mnemonic</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>a one-word description of the action, e.g. CppCompile or GoLink.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="do_nothing.inputs">
+              <code>inputs</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a>; or <a class="anchor" href="depset.html">depset</a></code></p>
+                          <p>list of the input files of the action.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="expand_template">expand_template</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> actions.expand_template(template, output, substitutions, is_executable=False)</pre></p>
+
+    Creates a template expansion action. When the action is executed, it will generate a file based on a template. Parts of the template will be replaced using the <code>substitutions</code> dictionary. Whenever a key of the dictionary appears in the template, it is replaced with the associated value. There is no special syntax for the keys. You may for example use curly braces to avoid conflicts (e.g. <code>{KEY}</code>). <a href="https://github.com/laurentlb/examples/blob/master/rules/expand_template/hello.bzl">See example of use</a>
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="expand_template.template">
+              <code>template</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="File.html">File</a></code></p>
+                          <p>the template file, which is a UTF-8 encoded text file.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="expand_template.output">
+              <code>output</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="File.html">File</a></code></p>
+                          <p>the output file, which is a UTF-8 encoded text file.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="expand_template.substitutions">
+              <code>substitutions</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="dict.html">dict</a></code></p>
+                          <p>substitutions to make when expanding the template.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="expand_template.is_executable">
+              <code>is_executable</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>whether the output file should be executable.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="run">run</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> actions.run(outputs, inputs=[], executable, arguments=[], mnemonic=None, progress_message=None, use_default_shell_env=False, env=None, execution_requirements=None, input_manifests=None)</pre></p>
+
+    Creates an action that runs an executable.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="run.outputs">
+              <code>outputs</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="File.html">File</a>s</code></p>
+                          <p>list of the output files of the action.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="run.inputs">
+              <code>inputs</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a>; or <a class="anchor" href="depset.html">depset</a></code></p>
+                          <p>list of the input files of the action.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="run.executable">
+              <code>executable</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="File.html">File</a>; or <a class="anchor" href="string.html">string</a></code></p>
+                          <p>the executable file to be called by the action.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="run.arguments">
+              <code>arguments</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a></code></p>
+                          <p>command line arguments of the action. Must be a list of strings or actions.args() objects. See <a href="actions.html#args">ctx.actions.args()</a>.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="run.mnemonic">
+              <code>mnemonic</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>a one-word description of the action, e.g. CppCompile or GoLink.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="run.progress_message">
+              <code>progress_message</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>progress message to show to the user during the build, e.g. "Compiling foo.cc to create foo.o".</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="run.use_default_shell_env">
+              <code>use_default_shell_env</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>whether the action should use the built in shell environment or not.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="run.env">
+              <code>env</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="dict.html">dict</a></code></p>
+                          <p>sets the dictionary of environment variables.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="run.execution_requirements">
+              <code>execution_requirements</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="dict.html">dict</a></code></p>
+                          <p>information for scheduling the action. See <a href="/docs/be/common-definitions.html#common.tags">tags</a> for useful keys.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="run.input_manifests">
+              <code>input_manifests</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a></code></p>
+                          <p>(Experimental) sets the input runfiles metadata; they are typically generated by resolve_command.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="run_shell">run_shell</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> actions.run_shell(outputs, inputs=[], arguments=[], mnemonic=None, command=None, progress_message=None, use_default_shell_env=False, env=None, execution_requirements=None, input_manifests=None)</pre></p>
+
+    Creates an action that runs a shell command.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="run_shell.outputs">
+              <code>outputs</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="File.html">File</a>s</code></p>
+                          <p>list of the output files of the action.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="run_shell.inputs">
+              <code>inputs</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a>; or <a class="anchor" href="depset.html">depset</a></code></p>
+                          <p>list of the input files of the action.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="run_shell.arguments">
+              <code>arguments</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a></code></p>
+                          <p>command line arguments of the action. Must be a list of strings or actions.args() objects.<br>Bazel passes the elements in this attribute as arguments to the command.The command can access these arguments as <code>$1</code>, <code>$2</code>, etc. See <a href="actions.html#args">ctx.actions.args()</a>.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="run_shell.mnemonic">
+              <code>mnemonic</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>a one-word description of the action, e.g. CppCompile or GoLink.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="run_shell.command">
+              <code>command</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a>; or <a class="anchor" href="list.html">sequence</a> of <a class="anchor" href="string.html">string</a>s; or <a class="anchor" href="globals.html#None">None</a></code></p>
+                          <p>shell command to execute.<br><br><b>Passing a sequence of strings to this attribute is deprecated and Bazel may stop accepting such values in the future.</b><br><br>The command can access the elements of the <code>arguments</code> object via <code>$1</code>, <code>$2</code>, etc.<br>When this argument is a string, it must be a valid shell command. For example: "<code>echo foo > $1</code>". Bazel uses the same shell to execute the command as it does for genrules.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="run_shell.progress_message">
+              <code>progress_message</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>progress message to show to the user during the build, e.g. "Compiling foo.cc to create foo.o".</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="run_shell.use_default_shell_env">
+              <code>use_default_shell_env</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>whether the action should use the built in shell environment or not.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="run_shell.env">
+              <code>env</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="dict.html">dict</a></code></p>
+                          <p>sets the dictionary of environment variables.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="run_shell.execution_requirements">
+              <code>execution_requirements</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="dict.html">dict</a></code></p>
+                          <p>information for scheduling the action. See <a href="/docs/be/common-definitions.html#common.tags">tags</a> for useful keys.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="run_shell.input_manifests">
+              <code>input_manifests</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="list.html">sequence</a></code></p>
+                          <p>(Experimental) sets the input runfiles metadata; they are typically generated by resolve_command.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="write">write</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> actions.write(output, content, is_executable=False)</pre></p>
+
+    Creates a file write action. When the action is executed, it will write the given content to a file. This is used to generate files using information available in the analysis phase. If the file is large and with a lot of static content, consider using <a href="#expand_template">expand_template</a>. <a href="https://github.com/laurentlb/examples/blob/master/rules/executable/executable.bzl">See example of use</a>
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="write.output">
+              <code>output</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="File.html">File</a></code></p>
+                          <p>the output file.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="write.content">
+              <code>content</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a>; or <a class="anchor" href="Args.html">Args</a></code></p>
+                          <p>the contents of the file. May be a either a string or actions.args() object. See <a href="actions.html#args">ctx.actions.args()</a>.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="write.is_executable">
+              <code>is_executable</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>whether the output file should be executable.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+

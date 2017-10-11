@@ -1,0 +1,208 @@
+---
+layout: documentation
+title: dict
+---
+<h1 id="modules.dict">dict</h1>
+
+A language built-in type representating a dictionary (associative mapping). Dictionaries may be constructed with a special literal syntax:<br><pre class="language-python">d = {"a": 2, "b": 5}</pre>See also the <a href="globals.html#dict">dict()</a> constructor function. When using the literal syntax, it is an error to have duplicated keys. Use square brackets to access elements:<br><pre class="language-python">e = d["a"]   # e == 2</pre>Like lists, they can also be constructed using a comprehension syntax:<br><pre class="language-python">d = {i: 2*i for i in range(20)}
+e = d[8]       # e == 16</pre>Dictionaries are mutable. You can add new elements or mutate existing ones:<pre class="language-python">d["key"] = 5</pre><p>Iterating over a dict is equivalent to iterating over its keys. The <code>in</code> operator tests for membership in the keyset of the dict.<br><pre class="language-python">"a" in {"a" : 2, "b" : 5} # evaluates as True</pre>The iteration order for a dict is deterministic but not specified.
+
+<div class="toc">
+  <h2>Methods</h2>
+  <ul>
+          <li><a href="#clear">clear</a></li>
+              <li><a href="#get">get</a></li>
+              <li><a href="#items">items</a></li>
+              <li><a href="#keys">keys</a></li>
+              <li><a href="#pop">pop</a></li>
+              <li><a href="#popitem">popitem</a></li>
+              <li><a href="#setdefault">setdefault</a></li>
+              <li><a href="#update">update</a></li>
+              <li><a href="#values">values</a></li>
+        </ul>
+</div>
+
+      <h2 id="clear">clear</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> dict.clear()
+</pre></p>
+
+    Remove all items from the dictionary.
+
+
+        <h2 id="get">get</h2>
+        <p><pre class="rule-signature">unknown dict.get(key, default=None)
+</pre></p>
+
+    Returns the value for <code>key</code> if <code>key</code> is in the dictionary, else <code>default</code>. If <code>default</code> is not given, it defaults to <code>None</code>, so that this method never throws an error.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="get.key">
+              <code>key</code>
+            </td>
+            <td>
+                          <p>The key to look for.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="get.default">
+              <code>default</code>
+            </td>
+            <td>
+                          <p>The default value to use (instead of None) if the key is not found.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="items">items</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">list</a> dict.items()
+</pre></p>
+
+    Returns the list of key-value tuples:<pre class="language-python">{2: "a", 4: "b", 1: "c"}.items() == [(2, "a"), (4, "b"), (1, "c")]</pre>
+
+
+
+        <h2 id="keys">keys</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">list</a> dict.keys()
+</pre></p>
+
+    Returns the list of keys:<pre class="language-python">{2: "a", 4: "b", 1: "c"}.keys() == [2, 4, 1]</pre>
+
+
+
+        <h2 id="pop">pop</h2>
+        <p><pre class="rule-signature">unknown dict.pop(key, default=unbound)
+</pre></p>
+
+    Removes a <code>key</code> from the dict, and returns the associated value. If entry with that key was found, return the specified <code>default</code> value;if no default value was specified, fail instead.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="pop.key">
+              <code>key</code>
+            </td>
+            <td>
+                          <p>The key.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="pop.default">
+              <code>default</code>
+            </td>
+            <td>
+                          <p>a default value if the key is absent.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="popitem">popitem</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">tuple</a> dict.popitem()
+</pre></p>
+
+    Remove and return an arbitrary <code>(key, value)</code> pair from the dictionary. <code>popitem()</code> is useful to destructively iterate over a dictionary, as often used in set algorithms. If the dictionary is empty, calling <code>popitem()</code> fails. It is deterministic which pair is returned.
+
+
+        <h2 id="setdefault">setdefault</h2>
+        <p><pre class="rule-signature">unknown dict.setdefault(key, default=None)
+</pre></p>
+
+    If <code>key</code> is in the dictionary, return its value. If not, insert key with a value of <code>default</code> and return <code>default</code>. <code>default</code> defaults to <code>None</code>.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="setdefault.key">
+              <code>key</code>
+            </td>
+            <td>
+                          <p>The key.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="setdefault.default">
+              <code>default</code>
+            </td>
+            <td>
+                          <p>a default value if the key is absent.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="update">update</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="globals.html#None">None</a> dict.update(other)
+</pre></p>
+
+    Update the dictionary with the key/value pairs from other, overwriting existing keys.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="update.other">
+              <code>other</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="dict.html">dict</a></code></p>
+                          <p>The values to add.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="values">values</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">list</a> dict.values()
+</pre></p>
+
+    Returns the list of values:<pre class="language-python">{2: "a", 4: "b", 1: "c"}.values() == ["a", "b", "c"]</pre>
+
+
+
+

@@ -1,0 +1,100 @@
+---
+layout: documentation
+title: objc
+---
+<h1 id="modules.objc">objc</h1>
+
+A configuration fragment for Objective-C.
+
+<div class="toc">
+  <h2>Methods</h2>
+  <ul>
+          <li><a href="#copts">copts</a></li>
+              <li><a href="#copts_for_current_compilation_mode">copts_for_current_compilation_mode</a></li>
+              <li><a href="#enable_apple_binary_native_protos">enable_apple_binary_native_protos</a></li>
+              <li><a href="#generate_dsym">generate_dsym</a></li>
+              <li><a href="#generate_linkmap">generate_linkmap</a></li>
+              <li><a href="#ios_simulator_device">ios_simulator_device</a></li>
+              <li><a href="#ios_simulator_version">ios_simulator_version</a></li>
+              <li><a href="#run_memleaks">run_memleaks</a></li>
+              <li><a href="#signing_certificate_name">signing_certificate_name</a></li>
+              <li><a href="#simulator_device_for_platform_type">simulator_device_for_platform_type</a></li>
+              <li><a href="#simulator_version_for_platform_type">simulator_version_for_platform_type</a></li>
+              <li><a href="#uses_device_debug_entitlements">uses_device_debug_entitlements</a></li>
+        </ul>
+</div>
+
+      <h2 id="copts">copts</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">list</a> objc.copts</pre></p>
+
+    Returns a list of options to use for compiling Objective-C.These options are applied after any default options but before options specified in the attributes of the rule.
+
+
+        <h2 id="copts_for_current_compilation_mode">copts_for_current_compilation_mode</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="list.html">list</a> objc.copts_for_current_compilation_mode</pre></p>
+
+    Returns a list of default options to use for compiling Objective-C in the current mode.
+
+
+        <h2 id="enable_apple_binary_native_protos">enable_apple_binary_native_protos</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="bool.html">bool</a> objc.enable_apple_binary_native_protos</pre></p>
+
+    Returns whether apple_binary should generate and link protos natively.
+
+
+        <h2 id="generate_dsym">generate_dsym</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="bool.html">bool</a> objc.generate_dsym</pre></p>
+
+    Whether to generate debug symbol(.dSYM) artifacts.
+
+
+        <h2 id="generate_linkmap">generate_linkmap</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="bool.html">bool</a> objc.generate_linkmap</pre></p>
+
+    Whether to generate linkmap artifacts.
+
+
+        <h2 id="ios_simulator_device">ios_simulator_device</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="string.html">string</a> objc.ios_simulator_device</pre></p>
+
+    The type of device (e.g. 'iPhone 6') to use when running on the simulator.
+
+
+        <h2 id="ios_simulator_version">ios_simulator_version</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="DottedVersion.html">DottedVersion</a> objc.ios_simulator_version</pre></p>
+
+    The SDK version of the iOS simulator to use when running on the simulator.
+
+
+        <h2 id="run_memleaks">run_memleaks</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="bool.html">bool</a> objc.run_memleaks</pre></p>
+
+    Returns a boolean indicating whether memleaks should be run during tests or not.
+
+
+        <h2 id="signing_certificate_name">signing_certificate_name</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="string.html">string</a> objc.signing_certificate_name</pre></p>
+
+    Returns the flag-supplied certificate name to be used in signing, or None if no such certificate was specified.
+
+         May return <code>None</code>.
+
+        <h2 id="simulator_device_for_platform_type">simulator_device_for_platform_type</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="string.html">string</a> objc.simulator_device_for_platform_type()</pre></p>
+
+    The type of device (e.g., 'iPhone 6' to simulate when running on the simulator.
+
+
+        <h2 id="simulator_version_for_platform_type">simulator_version_for_platform_type</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="DottedVersion.html">DottedVersion</a> objc.simulator_version_for_platform_type()</pre></p>
+
+    The SDK version of the simulator to use when running on the simulator.
+
+
+        <h2 id="uses_device_debug_entitlements">uses_device_debug_entitlements</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="bool.html">bool</a> objc.uses_device_debug_entitlements</pre></p>
+
+    Returns whether device debug entitlements should be included when signing an application.
+
+
+

@@ -1,0 +1,314 @@
+---
+layout: documentation
+title: apple_common
+---
+<h1 id="modules.apple_common">apple_common</h1>
+
+Functions for skylark to access internals of the apple rule implementations.
+
+<div class="toc">
+  <h2>Methods</h2>
+  <ul>
+          <li><a href="#apple_toolchain">apple_toolchain</a></li>
+              <li><a href="#AppleDebugOutputs">AppleDebugOutputs</a></li>
+              <li><a href="#AppleDylibBinary">AppleDylibBinary</a></li>
+              <li><a href="#AppleDynamicFramework">AppleDynamicFramework</a></li>
+              <li><a href="#AppleExecutableBinary">AppleExecutableBinary</a></li>
+              <li><a href="#AppleLoadableBundleBinary">AppleLoadableBundleBinary</a></li>
+              <li><a href="#AppleStaticLibrary">AppleStaticLibrary</a></li>
+              <li><a href="#dotted_version">dotted_version</a></li>
+              <li><a href="#IosDevice">IosDevice</a></li>
+              <li><a href="#new_dynamic_framework_provider">new_dynamic_framework_provider</a></li>
+              <li><a href="#new_objc_provider">new_objc_provider</a></li>
+              <li><a href="#new_xctest_app_provider">new_xctest_app_provider</a></li>
+              <li><a href="#Objc">Objc</a></li>
+              <li><a href="#platform">platform</a></li>
+              <li><a href="#platform_type">platform_type</a></li>
+              <li><a href="#XcodeProperties">XcodeProperties</a></li>
+              <li><a href="#XcodeVersionConfig">XcodeVersionConfig</a></li>
+        </ul>
+</div>
+
+      <h2 id="apple_toolchain">apple_toolchain</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="apple_toolchain.html">apple_toolchain</a> apple_common.apple_toolchain()</pre></p>
+
+    Utilities for resolving items from the apple toolchain.
+
+
+        <h2 id="AppleDebugOutputs">AppleDebugOutputs</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Provider.html">Provider</a> apple_common.AppleDebugOutputs</pre></p>
+
+    The constructor/key for the <code>AppleDebugOutputs</code> provider.<p>If a target propagates the <code>AppleDebugOutputs</code> provider, use this as the key with which to retrieve it. Example:<br><pre class='language-python'>
+dep = ctx.attr.deps[0]
+p = dep[apple_common.AppleDebugOutputs]
+</pre>
+
+
+        <h2 id="AppleDylibBinary">AppleDylibBinary</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Provider.html">Provider</a> apple_common.AppleDylibBinary</pre></p>
+
+    The constructor/key for the <code>AppleDylibBinary</code> provider.<p>If a target propagates the <code>AppleDylibBinary</code> provider, use this as the key with which to retrieve it. Example:<br><pre class='language-python'>
+dep = ctx.attr.deps[0]
+p = dep[apple_common.AppleDylibBinary]
+</pre>
+
+
+        <h2 id="AppleDynamicFramework">AppleDynamicFramework</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Provider.html">Provider</a> apple_common.AppleDynamicFramework</pre></p>
+
+    The constructor/key for the <code>AppleDynamicFramework</code> provider.<p>If a target propagates the <code>AppleDynamicFramework</code> provider, use this as the key with which to retrieve it. Example:<br><pre class='language-python'>
+dep = ctx.attr.deps[0]
+p = dep[apple_common.AppleDynamicFramework]
+</pre>
+
+
+        <h2 id="AppleExecutableBinary">AppleExecutableBinary</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Provider.html">Provider</a> apple_common.AppleExecutableBinary</pre></p>
+
+    The constructor/key for the <code>AppleExecutableBinary</code> provider.<p>If a target propagates the <code>AppleExecutableBinary</code> provider, use this as the key with which to retrieve it. Example:<br><pre class='language-python'>
+dep = ctx.attr.deps[0]
+p = dep[apple_common.AppleExecutableBinary]
+</pre>
+
+
+        <h2 id="AppleLoadableBundleBinary">AppleLoadableBundleBinary</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Provider.html">Provider</a> apple_common.AppleLoadableBundleBinary</pre></p>
+
+    The constructor/key for the <code>AppleLoadableBundleBinary</code> provider.<p>If a target propagates the <code>AppleLoadableBundleBinary</code> provider, use this as the key with which to retrieve it. Example:<br><pre class='language-python'>
+dep = ctx.attr.deps[0]
+p = dep[apple_common.AppleLoadableBundleBinary]
+</pre>
+
+
+        <h2 id="AppleStaticLibrary">AppleStaticLibrary</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Provider.html">Provider</a> apple_common.AppleStaticLibrary</pre></p>
+
+    The constructor/key for the <code>AppleStaticLibrary</code> provider.<p>If a target propagates the <code>AppleStaticLibrary</code> provider, use this as the key with which to retrieve it. Example:<br><pre class='language-python'>
+dep = ctx.attr.deps[0]
+p = dep[apple_common.AppleStaticLibrary]
+</pre>
+
+
+        <h2 id="dotted_version">dotted_version</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="DottedVersion.html">DottedVersion</a> apple_common.dotted_version(version)
+</pre></p>
+
+    Creates a new <a href="DottedVersion.html">DottedVersion</a> instance.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="dotted_version.version">
+              <code>version</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="string.html">string</a></code></p>
+                          <p>The string representation of the DottedVersion.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="IosDevice">IosDevice</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Provider.html">Provider</a> apple_common.IosDevice</pre></p>
+
+    <b>Deprecated. Use the new Skylark testing rules instead.</b> Returns the provider constructor for IosDeviceProvider. Use this as a key to access the attributes exposed by ios_device.
+
+
+        <h2 id="new_dynamic_framework_provider">new_dynamic_framework_provider</h2>
+        <p><pre class="rule-signature">struct apple_common.new_dynamic_framework_provider(binary, objc, framework_dirs=None, framework_files=None)
+</pre></p>
+
+    Creates a new AppleDynamicFramework provider instance.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="new_dynamic_framework_provider.binary">
+              <code>binary</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="File.html">File</a></code></p>
+                          <p>The dylib binary artifact of the dynamic framework.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="new_dynamic_framework_provider.objc">
+              <code>objc</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="ObjcProvider.html">ObjcProvider</a></code></p>
+                          <p>An ObjcProvider which contains information about the transitive dependencies linked into the binary.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="new_dynamic_framework_provider.framework_dirs">
+              <code>framework_dirs</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="depset.html">depset</a> of <a class="anchor" href="string.html">string</a>s</code></p>
+                          <p>The framework path names used as link inputs in order to link against the dynamic framework.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="new_dynamic_framework_provider.framework_files">
+              <code>framework_files</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="depset.html">depset</a> of <a class="anchor" href="File.html">File</a>s</code></p>
+                          <p>The full set of artifacts that should be included as inputs to link against the dynamic framework</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="new_objc_provider">new_objc_provider</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="ObjcProvider.html">ObjcProvider</a> apple_common.new_objc_provider(uses_swift=False, **kwargs)
+</pre></p>
+
+    Creates a new ObjcProvider instance.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="new_objc_provider.uses_swift">
+              <code>uses_swift</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="bool.html">bool</a></code></p>
+                          <p>Whether this provider should enable Swift support.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="new_objc_provider.kwargs">
+              <code>kwargs</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="dict.html">dict</a></code></p>
+                          <p>Dictionary of arguments.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="new_xctest_app_provider">new_xctest_app_provider</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="XcTestAppProvider.html">XcTestAppProvider</a> apple_common.new_xctest_app_provider(bundle_loader, ipa, objc_provider)
+</pre></p>
+
+    Creates a new XcTestAppProvider instance.
+
+          <h3>Parameters</h3>
+      <table class="table table-bordered table-condensed table-params">
+        <colgroup>
+          <col class="col-param">
+          <col class="param-description">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+                  <tr>
+            <td id="new_xctest_app_provider.bundle_loader">
+              <code>bundle_loader</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="File.html">File</a></code></p>
+                          <p>The bundle loader for the test. Corresponds to the binary inside the test IPA.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="new_xctest_app_provider.ipa">
+              <code>ipa</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="File.html">File</a></code></p>
+                          <p>The test IPA.</p>
+            </td>
+          </tr>
+                  <tr>
+            <td id="new_xctest_app_provider.objc_provider">
+              <code>objc_provider</code>
+            </td>
+            <td>
+                          <p><code><a class="anchor" href="ObjcProvider.html">ObjcProvider</a></code></p>
+                          <p>An ObjcProvider that should be included by tests using this test bundle.</p>
+            </td>
+          </tr>
+                </tbody>
+      </table>
+
+        <h2 id="Objc">Objc</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Provider.html">Provider</a> apple_common.Objc</pre></p>
+
+    The constructor/key for the <code>Objc</code> provider.<p>If a target propagates the <code>Objc</code> provider, use this as the key with which to retrieve it. Example:<br><pre class='language-python'>
+dep = ctx.attr.deps[0]
+p = dep[apple_common.Objc]
+</pre>
+
+
+        <h2 id="platform">platform</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="struct.html">struct</a> apple_common.platform</pre></p>
+
+    An enum-like struct that contains the following fields corresponding to Apple platforms:<br><ul><li><code>ios_device</code></li><li><code>ios_simulator</code></li><li><code>macos</code></li><li><code>tvos_device</code></li><li><code>tvos_simulator</code></li><li><code>watchos_device</code></li><li><code>watchos_device</code></li></ul><p>These values can be passed to methods that expect a platform, like <a href='apple.html#sdk_version_for_platform'>apple.sdk_version_for_platform</a>.
+
+
+        <h2 id="platform_type">platform_type</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="struct.html">struct</a> apple_common.platform_type</pre></p>
+
+    An enum-like struct that contains the following fields corresponding to Apple platform types:<br><ul><li><code>ios</code></li><li><code>macos</code></li><li><code>tvos</code></li><li><code>watchos</code></li></ul><p>These values can be passed to methods that expect a platform type, like the 'apple' configuration fragment's <a href='apple.html#multi_arch_platform'>multi_arch_platform</a> method.<p>Example:<p><pre class='language-python'>
+ctx.fragments.apple.multi_arch_platform(apple_common.platform_type.ios)
+</pre>
+
+
+        <h2 id="XcodeProperties">XcodeProperties</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Provider.html">Provider</a> apple_common.XcodeProperties</pre></p>
+
+    The constructor/key for the <code>XcodeVersionProperties</code> provider.<p>If a target propagates the <code>XcodeVersionProperties</code> provider, use this as the key with which to retrieve it. Example:<br><pre class='language-python'>
+dep = ctx.attr.deps[0]
+p = dep[apple_common.XcodeVersionProperties]
+</pre>
+
+
+        <h2 id="XcodeVersionConfig">XcodeVersionConfig</h2>
+        <p><pre class="rule-signature"><a class="anchor" href="Provider.html">Provider</a> apple_common.XcodeVersionConfig</pre></p>
+
+    The constructor/key for the <code>XcodeVersionConfig</code> provider.
+
+
+
